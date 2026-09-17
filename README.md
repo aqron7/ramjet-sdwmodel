@@ -16,10 +16,10 @@ normal shock, 0.849 total pressure recovery.
 Roadmap:
 - [x] Freestream conditions at design altitude
 - [x] Inlet shock structure and ramp count
-- [ ] Diffuser sizing
-- [ ] Combustor sizing
-- [ ] Nozzle throat and exit areas
-- [ ] Station table and area distribution
+- [x] Diffuser sizing
+- [x] Combustor sizing
+- [x] Nozzle throat and exit areas
+- [x] Station table and area distribution
 - [ ] SolidWorks model
 - [ ] Engineering drawing
 - [ ] 3D printed sectioned model
