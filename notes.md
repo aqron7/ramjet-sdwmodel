@@ -54,8 +54,46 @@ geometry. The ramp looks like it is just redirecting air. What it is
 actually doing is splitting one violent compression into several gentle
 ones.
 
+## 2026-09-17 — Resolving A* between cold and hot sections
+
+Ran into a bookkeeping problem converting area ratios into diameters.
+The diffuser ratio of 2.67 and the nozzle contraction of 0.746 are not
+measured against the same reference. A* depends on total temperature,
+and the combustor took T0 from 502 K to 2000 K, so the sonic reference
+area is different before and after.
+
+The fix is that the combustor is constant area. Station 4 and Station 5
+are the same physical duct, so expressing everything relative to the
+combustor area cancels whichever A* applies and the table closes.
+
+Worth remembering as a general point: A* is a reference, not a location.
+There is no requirement that the flow ever actually reaches Mach 1 at
+that area, and the value changes whenever total temperature does.
+
+## 2026-09-17 — Sizing
+
+Picked 60 mm combustor diameter. Driven by printing and desk space
+rather than by anything aerodynamic. Total internal duct comes out at
+331.6 mm, roughly 5.5 combustor diameters, which is in the normal range
+for a ramjet.
+
+Angles were taken from typical practice: 6 degree diffuser divergence
+to avoid boundary layer separation, 2.5 diameters of combustor length
+for the flame to complete, 15 and 13 degree nozzle half-angles. None of
+these were optimized.
+
+The nozzle convergence came out at only 15.3 mm, which is very short.
+That follows from the throat being barely narrower than the combustor,
+which in turn follows from the combustor exit sitting at M = 0.5. If it
+looks abrupt once sketched, dropping the convergence half-angle to 10
+degrees stretches it to about 23 mm without changing any areas.
+
+At roughly 420 to 450 mm overall with the ramps included, the part will
+not fit a single printer bed. Plan is to split it lengthwise for a
+sectioned view of the flowpath and again axially into segments with
+alignment pins.
+
 ## Next
 
-Still at Mach 2.0. Combustor needs roughly Mach 0.2 to 0.3. Run two
-options and compare total pressure recovery: a second ramp followed by
-a normal shock, or a normal shock now.
+Sketch the profile in SolidWorks and revolve it. Ramp geometry still to
+be worked out.
