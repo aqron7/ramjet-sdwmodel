@@ -81,14 +81,42 @@ This shows two ramps beat one. It does not show two is optimal. Three
 would recover more still, at the cost of inlet length, weight, and
 complexity. That tradeoff has not been evaluated here.
 
-|Station 4| combustor entrance:
 
-M = 0.2
-T = 498.1 K
-p = 373.1 kPa
-T₀ = 502.1 K
-p₀ = 383.7 kPa
-Area ratio from diffuser inlet = 2.67
+**Diffuser and Station 4 — combustor entrance**
+
+Subsonic diffusion from M = 0.679 to M = 0.2 in a diverging duct. No
+shocks, so the process is treated as isentropic and total pressure is
+unchanged through this section.
+
+Area ratio from isentropic A/A* values: 2.9635 / 1.1097 = **2.67**.
+The combustor entrance flow area is 2.67 times the diffuser inlet area.
+
+| Property | Value |
+|---|---|
+| M | 0.200 |
+| T | 498.1 K |
+| p | 373.1 kPa |
+| T0 | 502.1 K |
+| p0 | 383.7 kPa |
+| Diffuser area ratio | 2.67 |
+
+Total temperature is constant from freestream through the diffuser:
+T0 = T * (1 + 0.2 * M^2) = 502.1 K at Station 0, unchanged by shocks.
+Total pressure at freestream is 451.9 kPa, of which 0.849 survives the
+inlet, giving 383.7 kPa at the combustor.
+
+**What the inlet accomplishes**
+
+Ambient air at 223 K and 26.4 kPa arrives at the combustor at 498 K and
+373 kPa. Static pressure rises by a factor of 14 and temperature more
+than doubles, with no moving parts. That compression ratio is
+comparable to a turbojet compressor stage, and it is the reason a
+ramjet works without turbomachinery.
+
+The 502 K total temperature is also worth noting on its own. Nothing
+has burned yet. That heating comes entirely from bringing Mach 2.5 air
+to rest, which is why thermal limits become a design driver as the
+design Mach number rises.
 ## Method and sources
 
 Isentropic and shock relations are taken from standard compressible
