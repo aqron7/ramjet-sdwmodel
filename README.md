@@ -174,6 +174,62 @@ Every loss in the engine is accounted for here. The diffuser and nozzle
 are treated as isentropic, so 76.6 percent of freestream total pressure
 reaches the nozzle.
 
+**Nozzle and Station 6 — exit**
+
+Converging-diverging nozzle, treated as isentropic. The flow enters at
+M = 0.50, accelerates to sonic at the throat, then expands
+supersonically.
+
+**Throat.** A/A* at M = 0.50 is 1.3398, so the throat area is
+1 / 1.3398 = 0.746 of the combustor area. Converging section, as
+expected for subsonic flow reaching Mach 1.
+
+**Exit.** Sized for perfect expansion at the design altitude, meaning
+exit static pressure matches ambient. Required pressure ratio is
+26,436 / 346,000 = 0.0764, which corresponds to M = 2.32 and
+A/A* = 2.233.
+
+| Property | Value |
+|---|---|
+| M | 2.32 |
+| T | 963.2 K |
+| p | 26,436 Pa (= ambient) |
+| a | 622.1 m/s |
+| V | 1443.3 m/s |
+| Throat contraction from combustor | 0.746 |
+| Expansion ratio, throat to exit | 2.233 |
+
+Static temperature from T = 0.4816 * T0 at M = 2.32, then
+a = sqrt(gamma * R * T) and V = M * a.
+
+## Performance summary
+
+| Station | M | Note |
+|---|---|---|
+| 0 Freestream | 2.50 | 749 m/s, 26.4 kPa, 223 K |
+| 1 After ramp 1 | 2.00 | p0 recovery 0.960 |
+| 2 After ramp 2 | 1.57 | cumulative 0.936 |
+| 3 After normal shock | 0.68 | cumulative 0.849 |
+| 4 Combustor entrance | 0.20 | 498 K, 373 kPa |
+| 5 Combustor exit | 0.50 | 2000 K, cumulative 0.766 |
+| 6 Nozzle exit | 2.32 | 1443 m/s, ambient pressure |
+
+**Specific thrust.** With the nozzle perfectly expanded there is no
+pressure thrust term, so thrust per unit mass flow is simply the
+velocity difference:
+
+V_exit - V_inlet = 1443.3 - 748.6 = **694.7 N per kg/s of air**
+
+The engine nearly doubles the flow velocity. That difference is the
+entire thrust mechanism, and it comes from heat addition alone: no
+turbomachinery, no moving parts anywhere in the flowpath.
+
+**Where the losses are.** 15.1 percent of freestream total pressure is
+lost in the inlet shocks and 9.8 percent in the combustor. The diffuser
+and nozzle are treated as isentropic, so 76.6 percent survives to the
+nozzle. The single largest loss in the engine is the normal shock at
+the end of the inlet, at 9.2 percent on its own.
+
 ## Assumptions
 
 - Calorically perfect gas, gamma = 1.4 constant throughout
