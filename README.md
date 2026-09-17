@@ -2,7 +2,7 @@
 
 An analysis-driven ramjet design, taken from first principles through
 CAD to a printable model. The geometry is dictated by the flow
-calculations, not the other way around.
+calculations.
 
 ## Design point
 
