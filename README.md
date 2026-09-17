@@ -2,7 +2,7 @@
 
 An analysis-driven ramjet design, taken from first principles through
 CAD to a printable model. The geometry is dictated by the flow
-calculations.
+calculations, not the other way around.
 
 ## Design point
 
@@ -10,12 +10,12 @@ Mach 2.5 at 10 km altitude.
 
 ## Status
 
-**Inlet analysis in progress.** Station 0 and Station 1 complete.
+**Inlet compression complete.** Two 12 degree ramps followed by a
+normal shock, 0.849 total pressure recovery.
 
 Roadmap:
 - [x] Freestream conditions at design altitude
-- [x] First oblique shock (12 degree ramp)
-- [ ] Remaining inlet compression to subsonic
+- [x] Inlet shock structure and ramp count
 - [ ] Diffuser sizing
 - [ ] Combustor sizing
 - [ ] Nozzle throat and exit areas
@@ -37,36 +37,49 @@ Roadmap:
 | a | 299.4 m/s |
 | V | 748.6 m/s |
 
-Speed of sound from a = sqrt(gamma * R * T), with gamma = 1.4 and
+Speed of sound from a = sqrt(gamma * R * T), gamma = 1.4,
 R = 287 J/(kg*K).
 
-**Station 1 — behind first oblique shock (12 degree ramp)**
+**Inlet shock structure**
 
-| Property | Value |
-|---|---|
-| theta (deflection) | 12 deg |
-| beta (shock angle, weak solution) | 33.77 deg |
-| M1n (normal component) | 1.390 |
-| M | 2.001 |
-| p | 55,278 Pa |
-| T | 278.71 K |
-| rho | 0.6904 kg/m^3 |
-| p0 recovery | 0.96 |
+| Station | Event | M | Shock p0 ratio | Cumulative recovery |
+|---|---|---|---|---|
+| 0 | Freestream | 2.500 | | 1.000 |
+| 1 | Oblique shock, 12 deg ramp | 2.001 | 0.960 | 0.960 |
+| 2 | Oblique shock, 12 deg ramp | 1.565 | 0.975 | 0.936 |
+| 3 | Normal shock | 0.679 | 0.908 | 0.849 |
 
-Ratios across the shock: p2/p1 = 2.091, T2/T1 = 1.249,
-rho2/rho1 = 1.673.
+Ramp 1: beta = 33.77 deg, M1n = 1.390.
+Ramp 2: beta = 41.5 deg, M1n = 1.326.
 
-## Why a ramp instead of a flat inlet
+Station 1 static conditions: p = 55,278 Pa, T = 278.71 K,
+rho = 0.6904 kg/m^3.
+
+## Why the inlet has two ramps
 
 An oblique shock only processes the velocity component normal to the
 shock. The parallel component passes through unchanged, so the shock is
-much weaker than a normal shock at the same freestream Mach number.
+weaker than a normal shock at the same Mach number.
 
-At the design point, this 12 degree ramp costs 4 percent of total
-pressure while more than doubling static pressure. A single normal
-shock at Mach 2.5 would reach subsonic flow in one step but destroy
-roughly half the total pressure. That difference is why supersonic
-inlets stage several weak oblique shocks ahead of a final normal shock.
+Shock losses also grow steeply with Mach number. Staging the
+compression means each shock runs at a lower Mach, and several small
+losses beat one large one.
+
+Two inlet configurations were run at the design point:
+
+| Configuration | Final M | Total recovery |
+|---|---|---|
+| One ramp, then normal shock | 0.577 | 0.692 |
+| Two ramps, then normal shock | 0.679 | 0.849 |
+
+The second ramp drops the Mach number ahead of the normal shock from
+2.00 to 1.57, which cuts that shock's loss from 28 percent to 9
+percent. Net gain is 23 percent more total pressure reaching the
+combustor. Two ramps was selected.
+
+This shows two ramps beat one. It does not show two is optimal. Three
+would recover more still, at the cost of inlet length, weight, and
+complexity. That tradeoff has not been evaluated here.
 
 ## Method and sources
 
@@ -84,11 +97,13 @@ behind them are listed below rather than assumed to be understood.
 
 - Calorically perfect gas, gamma = 1.4 constant throughout
 - Inviscid flow, no boundary layer or friction losses
-- Two-dimensional wedge treatment rather than a conical spike
-- Sharp leading edge, attached shock
-- Weak shock solution selected at each oblique shock
+- Two-dimensional ramp treatment rather than a conical spike
+- Sharp leading edges, attached shocks
+- Weak shock solution at each oblique shock
+- Normal shock sits at the design location, no spillage or unstart
 - Steady, adiabatic flow outside the combustor
 - No heat transfer through walls
+- Ramp angles chosen for simplicity, not optimized
 
 ## Tools
 
