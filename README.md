@@ -230,6 +230,57 @@ and nozzle are treated as isentropic, so 76.6 percent survives to the
 nozzle. The single largest loss in the engine is the normal shock at
 the end of the inlet, at 9.2 percent on its own.
 
+## Geometry
+
+The analysis gives area ratios. Converting those to a drawable part
+requires fixing one physical dimension and resolving the sonic
+reference areas, both covered below.
+
+**Sonic reference areas.** A* is the area at which a given flow would
+reach Mach 1. It depends on total temperature, so heat addition in the
+combustor changes it: the hot gas needs a larger throat to go sonic
+than the cold gas did. The inlet-side stations therefore share one A*
+and the nozzle-side stations share a different one, and the two cannot
+be compared directly.
+
+The link between them is the combustor itself. It is a constant-area
+duct, so Station 4 and Station 5 have the same physical area even
+though their A/A* values differ (2.9635 at M = 0.20, 1.3398 at
+M = 0.50). Expressing every station relative to the combustor area A_c
+cancels the reference and makes the set consistent.
+
+**Size.** Combustor diameter fixed at 60 mm, chosen to keep the printed
+model small enough for a desk and for a Makerspace printer bed when
+split into segments.
+
+| Station | A / A_c | Diameter ratio | Diameter |
+|---|---|---|---|
+| 3 Diffuser inlet | 0.374 | 0.612 | 36.7 mm |
+| 4 Combustor entrance | 1.000 | 1.000 | 60.0 mm |
+| 5 Combustor exit | 1.000 | 1.000 | 60.0 mm |
+| Nozzle throat | 0.746 | 0.864 | 51.8 mm |
+| 6 Nozzle exit | 1.666 | 1.291 | 77.4 mm |
+
+Diameter ratios are the square root of the area ratios.
+
+**Axial lengths.** Each conical section is sized from a chosen wall
+half-angle, with L = (R_out - R_in) / tan(half-angle). Angles were
+chosen from typical practice, not optimized.
+
+| Section | Half-angle | Length | Start dia | End dia |
+|---|---|---|---|---|
+| Diffuser | 6 deg | 110.8 mm | 36.7 | 60.0 |
+| Combustor | n/a | 150.0 mm | 60.0 | 60.0 |
+| Nozzle convergence | 15 deg | 15.3 mm | 60.0 | 51.8 |
+| Nozzle divergence | 13 deg | 55.4 mm | 51.8 | 77.4 |
+
+Combustor length set at 2.5 combustor diameters. Total internal duct
+length is 331.6 mm, excluding the external inlet ramps.
+
+The flowpath dimensions above are the analysis result. Outer geometry,
+wall thickness, cowl and mounting are modeling choices made separately
+and do not feed back into the flow numbers.
+
 ## Assumptions
 
 - Calorically perfect gas, gamma = 1.4 constant throughout
