@@ -81,6 +81,14 @@ This shows two ramps beat one. It does not show two is optimal. Three
 would recover more still, at the cost of inlet length, weight, and
 complexity. That tradeoff has not been evaluated here.
 
+|Station 4| combustor entrance:
+
+M = 0.2
+T = 498.1 K
+p = 373.1 kPa
+T₀ = 502.1 K
+p₀ = 383.7 kPa
+Area ratio from diffuser inlet = 2.67
 ## Method and sources
 
 Isentropic and shock relations are taken from standard compressible
