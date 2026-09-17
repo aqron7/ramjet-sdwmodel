@@ -129,6 +129,51 @@ At the time of writing I have not taken a gas dynamics course. The
 relations used are applied from reference material, and the assumptions
 behind them are listed below rather than assumed to be understood.
 
+**Combustor and Station 5 — combustor exit**
+
+Constant-area combustor with heat addition, treated as Rayleigh flow.
+Exit total temperature set to 2000 K, chosen as representative of
+liquid-fueled ramjets: below the stoichiometric flame temperature for
+hydrocarbon fuel in air, and lean enough to leave margin on wall
+cooling.
+
+**Thermal choking check.** Adding heat to subsonic flow drives it
+toward Mach 1. At the combustor entrance M = 0.2, the Rayleigh table
+gives T0/T0* = 0.1736, so the choking total temperature is
+
+T0* = 502.1 / 0.1736 = **2892 K**
+
+The 2000 K design target sits well below this, so the flow does not
+choke and the design is feasible in a constant-area duct.
+
+| Property | Value |
+|---|---|
+| M | 0.500 |
+| T0 | 2000 K |
+| p0 | 346 kPa |
+| Combustor p0 ratio | 0.902 |
+| Choking limit T0* | 2892 K |
+| Area change | none (constant area) |
+
+Exit Mach found by working back through the Rayleigh table:
+T0/T0* at exit = 2000 / 2892 = 0.6916, which corresponds to M = 0.50.
+Total pressure ratio across the combustor = 1.1141 / 1.2346 = 0.902.
+
+The flow accelerates from M 0.2 to M 0.5 with no area change at all.
+Heat addition alone does that, and it costs 9.8 percent of total
+pressure in the process.
+
+**Total pressure budget**
+
+| Section | p0 ratio | Cumulative |
+|---|---|---|
+| Inlet (2 ramps + normal shock) | 0.849 | 0.849 |
+| Combustor (Rayleigh) | 0.902 | 0.766 |
+
+Every loss in the engine is accounted for here. The diffuser and nozzle
+are treated as isentropic, so 76.6 percent of freestream total pressure
+reaches the nozzle.
+
 ## Assumptions
 
 - Calorically perfect gas, gamma = 1.4 constant throughout
