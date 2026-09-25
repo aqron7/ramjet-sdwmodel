@@ -20,8 +20,8 @@ Roadmap:
 - [x] Combustor sizing
 - [x] Nozzle throat and exit areas
 - [x] Station table and area distribution
-- [ ] SolidWorks model
-- [ ] Engineering drawing
+- [x] SolidWorks model
+- [x] Engineering drawing
 - [ ] 3D printed sectioned model
 
 ## Station data
