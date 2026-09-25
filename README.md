@@ -281,6 +281,34 @@ The flowpath dimensions above are the analysis result. Outer geometry,
 wall thickness, cowl and mounting are modeling choices made separately
 and do not feed back into the flow numbers.
 
+**Inlet spike.** The centerbody is positioned by shock-on-lip: at the
+design Mach the shock from the tip should land exactly on the cowl lip.
+Further forward and air spills around the inlet, further back and the
+shock enters the duct.
+
+With beta = 33.77 deg and a cowl lip radius of 18.35 mm, the tip sits
+
+L = 18.35 / tan(33.77) = 27.44 mm ahead of the lip plane.
+
+Applying the same condition to the second shock, which runs at
+12 + 41.5 = 53.5 deg from the axis, places the ramp corner 16.45 mm aft
+of the tip at a radius of 3.50 mm. The spike radius at the lip plane is
+then 8.39 mm.
+
+| Point | x from lip plane (mm) | r (mm) |
+|---|---|---|
+| Tip | -27.44 | 0 |
+| Ramp corner | -10.99 | 3.50 |
+| Lip plane | 0 | 8.39 |
+| Spike end | +25 | 0 |
+
+A spike of radius 8.39 mm inside a cowl of radius 18.35 mm blocks about
+21 percent of the inlet area, while the diffuser analysis treated that
+station as a full circle. The spike is therefore tapered back to the
+centerline over 25 mm so the duct is fully circular before the diffuser
+begins its area change. Real inlets do not do this, and it is listed
+below as a simplification.
+
 ## Assumptions
 
 - Calorically perfect gas, gamma = 1.4 constant throughout
