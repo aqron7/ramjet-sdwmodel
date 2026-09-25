@@ -93,7 +93,18 @@ not fit a single printer bed. Plan is to split it lengthwise for a
 sectioned view of the flowpath and again axially into segments with
 alignment pins.
 
-## Next
+## 2026-09-25 - CAD model
 
-Sketch the profile in SolidWorks and revolve it. Ramp geometry still to
-be worked out.
+Built the flowpath as a single revolve from the five station diameters,
+then shelled outward 3 mm so the inner surface stays at the calculated
+dimensions and material is added outside. Shelling inward would have
+invalidated every area in the analysis.
+
+Spike is a second revolve on the same axis, created as a separate solid
+body since it does not touch the duct walls.
+
+The nozzle convergence is visibly abrupt in the model, close to a step.
+That follows from the throat sitting only slightly below the combustor
+diameter, which follows from the combustor exiting at M = 0.5. Dropping
+the convergence half-angle from 15 to 10 degrees would stretch it from
+15.3 mm to about 23 mm without changing any areas. Not changed yet.
